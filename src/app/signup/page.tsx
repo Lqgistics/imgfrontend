@@ -145,7 +145,7 @@ export default function SignupForm() {
 
   return (
     <div className="flex items-center justify-center min-h-[90vh]">
-      <Card className="mx-auto w-[28%] min-w-[350px]">
+      <Card className="mx-auto w-[28%] min-w-[350px] bg-black/10 text-white border-white/10">
         <CardHeader>
           <CardTitle className="text-3xl font-bold">Sign Up</CardTitle>
           <CardDescription>Create your account to get started</CardDescription>
@@ -157,7 +157,7 @@ export default function SignupForm() {
                 Username
               </Label>
               <Input
-                className="h-[50px] rounded-xl text-md"
+                className="h-[50px] rounded-xl text-md bg-black/20 text-white border-white/10 "
                 id="username"
                 name="username"
                 type="text"
@@ -174,7 +174,7 @@ export default function SignupForm() {
                 Email
               </Label>
               <Input
-                className="h-[50px] rounded-xl text-md"
+                className="h-[50px] rounded-xl text-md bg-black/20 text-white border-white/10 "
                 id="email"
                 name="email"
                 type="email"
@@ -191,7 +191,7 @@ export default function SignupForm() {
                 Password
               </Label>
               <Input
-                className="h-[50px] rounded-xl text-md"
+                className="h-[50px] rounded-xl text-md bg-black/20 text-white border-white/10 "
                 id="password"
                 name="password"
                 type="password"
@@ -241,7 +241,7 @@ export default function SignupForm() {
             </div>
             <Button
               type="submit"
-              className="w-full h-[50px] rounded-xl"
+              className="w-full h-[50px] rounded-xl bg-gray-900 hover:bg-gray-800"
               disabled={loading}
             >
               {loading

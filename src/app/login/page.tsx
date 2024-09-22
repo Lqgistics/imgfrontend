@@ -56,8 +56,8 @@ export default function Login() {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-[90vh] bg-gray-900">
-      <Card className="mx-auto w-[28%] min-w-[350px] bg-gray-800 text-white">
+    <div className="flex items-center justify-center min-h-[90vh]">
+      <Card className="mx-auto w-[28%] min-w-[350px] bg-black/10 text-white border-white/10">
         <CardHeader>
           <CardTitle className="text-3xl font-bold">Login</CardTitle>
           <CardDescription>Enter your login details below</CardDescription>
@@ -69,7 +69,7 @@ export default function Login() {
                 Email
               </Label>
               <Input
-                className="h-[50px] rounded-xl text-md bg-gray-700 text-white"
+                className="h-[50px] rounded-xl text-md bg-black/20 text-white border-white/10 "
                 id="email"
                 type="email"
                 placeholder="email@example.com"
@@ -83,7 +83,7 @@ export default function Login() {
                 Password
               </Label>
               <Input
-                className="h-[50px] rounded-xl text-md bg-gray-700 text-white"
+                className="h-[50px] rounded-xl text-md bg-black/20 text-white border-white/10"
                 id="password"
                 type="password"
                 value={password}
@@ -94,7 +94,7 @@ export default function Login() {
             {error && <div className="text-red-500">{error}</div>}
             <Button
               type="submit"
-              className="w-full h-[50px] rounded-xl bg-blue-600 hover:bg-blue-700"
+              className="w-full h-[50px] rounded-xl bg-gray-900 hover:bg-gray-800 text-white"
               disabled={loading}
             >
               {loading ? "Logging in..." : "Login"}

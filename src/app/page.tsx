@@ -15,7 +15,7 @@ const frames = [
   { width: 50, height: 50 },
 ];
 
-export default function Home({ children }: { children: React.ReactNode }) {
+export default function Home() {
   return (
     <div className="relative min-h-screen">
       <Navbar />
@@ -65,7 +65,7 @@ export default function Home({ children }: { children: React.ReactNode }) {
           ))}
         </Card>
       </div>
-      {children}
+
       <section className="h-screen w-full flex items-center justify-center mt-80">
         <div className="mx-auto grid max-w-5xl items-center gap-6 py-12 lg:grid-cols-3 lg:gap-12 top-0">
           <Card className="relative overflow-hidden bg-[#131327]/20 backdrop-blur-md border border-white/10 text-white">
