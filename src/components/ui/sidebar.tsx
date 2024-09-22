@@ -42,16 +42,16 @@ const Sidebar = () => {
         ></div>
       )}
       <aside
-        className={`fixed inset-y-0 left-0 w-64 border-r border-none bg-white dark:bg-[#0d0d0c] transform ${
+        className={`fixed inset-y-0 left-0 w-64 border-r border-none bg-white dark:bg-[#09090b] transform ${
           isSidebarOpen ? "translate-x-0" : "-translate-x-full"
         } transition-transform duration-300 ease-in-out md:relative md:translate-x-0 z-20`}
       >
         <div className="p-4">
-          <Card className="flex items-center space-x-4 p-2 px-4 bg-[#252525] border-none mb-10 rounded-2xl">
+          <Card className="flex items-center space-x-4 p-2 px-4 bg-[#18181b] border-none mb-10 rounded-2xl">
             <img
               src=""
               alt="User Profile"
-              className="w-16 h-16 rounded-full bg-gray-900 border-none"
+              className="w-16 h-16 rounded-full bg-white/10 border-none"
             />
             <div>
               <h1 className="text-lg font-bold text-white">USERNAME</h1>

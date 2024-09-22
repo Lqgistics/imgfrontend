@@ -8,7 +8,7 @@ export default function Dashboard() {
       {/* Main content */}
       <main className="flex-1 overflow-y-auto p-8 ">
         <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6">
-          <Card className="bg-[#161616] p-8 border-0">
+          <Card className="bg-[#18181b] p-8 border-0">
             <h1 className="text-2xl font-bold text-white max-sm:text-center">
               Hi, USER
             </h1>
@@ -37,7 +37,7 @@ export default function Dashboard() {
               ].map((item, index) => (
                 <Button
                   key={index}
-                  className="bg-[#252525] rounded-2xl lg:rounded-3xl flex flex-col h-full"
+                  className="bg-white/5 rounded-2xl lg:rounded-3xl flex flex-col h-full"
                 >
                   {item.icon}
                   <span className="text-sm text-white">{item.label}</span>
@@ -47,7 +47,7 @@ export default function Dashboard() {
           </Card>
 
           {/* Recent Images Card */}
-          <Card className="bg-[#161616] border-0 p-1">
+          <Card className="bg-[#18181b] border-0 p-1">
             <div className="p-4">
               <h3 className="text-xl font-semibold mb-2 text-white ">
                 Recent Images
@@ -56,7 +56,7 @@ export default function Dashboard() {
                 {[1, 2, 3, 4, 5, 6].map((item) => (
                   <div
                     key={item}
-                    className="aspect-square bg-[#252525] rounded-3xl"
+                    className="aspect-square bg-white/5 rounded-3xl"
                   ></div>
                 ))}
               </div>
@@ -70,7 +70,7 @@ export default function Dashboard() {
           </Card>
 
           {/* Upload Stats Card */}
-          <Card className="bg-[#161616] p-3 lg:p-8 border-0 flex flex-col justify-between">
+          <Card className="bg-[#18181b] p-3 lg:p-8 border-0 flex flex-col justify-between">
             <div className="p-4">
               <h3 className="text-xl font-semibold mb-2 text-white">
                 Upload Stats
@@ -79,7 +79,7 @@ export default function Dashboard() {
                 <p className="text-3xl xl:text-[4rem] font-bold text-white mt-0 xl:mt-10 2xl:mt-16">
                   1,234
                 </p>
-                <p className="text-white/60 xl:mt-8">
+                <p className="text-white/90 xl:mt-8">
                   Images uploaded this month
                 </p>
               </div>
@@ -93,7 +93,7 @@ export default function Dashboard() {
           </Card>
 
           {/* Storage Usage Card */}
-          <Card className="bg-[#161616] p-3 lg:p-6 border-0 flex flex-col justify-between">
+          <Card className="bg-[#18181b] p-3 lg:p-6 border-0 flex flex-col justify-between">
             <div className="p-4">
               <h3 className="text-xl font-semibold mb-5 text-white">
                 Storage Usage

@@ -87,7 +87,10 @@ export default function LibraryPage() {
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
         {images.map((image) => (
-          <Card key={image.id} className="overflow-hidden rounded-xl">
+          <Card
+            key={image.id}
+            className="overflow-hidden rounded-xl bg-[#18181b]"
+          >
             <CardContent className="p-0">
               <img
                 src={image.url}
@@ -97,11 +100,14 @@ export default function LibraryPage() {
               />
             </CardContent>
             <CardFooter className="p-2 flex justify-between items-center">
-              <p className="text-sm font-medium truncate">{image.name}</p>
+              <p className="text-sm font-medium truncate text-white">
+                {image.name}
+              </p>
               <TooltipProvider>
                 <Tooltip>
                   <TooltipTrigger asChild>
                     <Button
+                      className="text-white"
                       variant="ghost"
                       size="icon"
                       onClick={() => handleCopyLink(image.id, image.url)}

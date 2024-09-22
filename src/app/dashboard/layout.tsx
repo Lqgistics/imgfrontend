@@ -8,7 +8,7 @@ interface DashboardLayoutProps {
 
 const DashboardLayout = ({ children }: DashboardLayoutProps) => {
   return (
-    <div className="flex h-screen bg-[#0d0d0c] ">
+    <div className="flex h-screen bg-[#09090b] ">
       <Sidebar />
       <main className="flex-1 overflow-y-auto">{children}</main>
       <Toaster />
