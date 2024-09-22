@@ -93,7 +93,7 @@ export default function LibraryPage() {
                 src={image.url}
                 alt={image.name}
                 className="w-full h-48 object-cover"
-                referrerPolicy="origin"
+                referrerPolicy="no-referrer"
               />
             </CardContent>
             <CardFooter className="p-2 flex justify-between items-center">
