@@ -54,7 +54,7 @@ export default function Home() {
                 rotate: [0, 10, -10, 0],
               }}
               transition={{
-                duration: window.innerWidth < 768 ? 6 : 5, // Increased duration to slow down the animation
+                duration: 5, // Increased duration to slow down the animation
                 repeat: Infinity,
                 delay: index * 0.9, // Adjusted delay to match the new duration
                 ease: "easeInOut",
