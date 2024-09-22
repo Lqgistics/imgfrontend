@@ -90,9 +90,9 @@ export default function ImageUploadPage() {
 
   return (
     <div className="flex items-center justify-center min-h-[90vh]">
-      <Card className="mx-auto  w-[350px] lg:w-[600px] bg-[#161616] border-none shadow-xl overflow-hidden p-8">
+      <Card className="mx-auto  w-[350px] sm:w-[500px]  lg:w-[600px] bg-[#18181b]/70 border-none shadow-xl overflow-hidden p-4 ">
         <CardHeader>
-          <CardTitle className="text-3xl font-bold text-white">
+          <CardTitle className="text-3xl font-bold text-white mb-1">
             Upload Image
           </CardTitle>
           <CardDescription className="text-white">
@@ -102,7 +102,7 @@ export default function ImageUploadPage() {
         <CardContent className="space-y-4 ">
           <div
             {...getRootProps()}
-            className={`border-white/60 border-2 border-dashed rounded-xl p-8 text-center cursor-pointer ${
+            className={`border-white/60 border-2 border-dashed rounded-xl p-16 text-center cursor-pointer ${
               isDragActive ? "border-primary" : "border-muted-foreground"
             }`}
           >
@@ -139,7 +139,7 @@ export default function ImageUploadPage() {
           </div>
           <Button
             onClick={handleUpload}
-            className="w-full h-[50px] rounded-xl text-white"
+            className="w-full h-[50px] rounded-xl text-white bg-[#262626]/60 hover:bg-[#0e1f19]"
             disabled={!file}
           >
             Upload Image

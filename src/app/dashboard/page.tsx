@@ -8,7 +8,7 @@ export default function Dashboard() {
       {/* Main content */}
       <main className="flex-1 overflow-y-auto p-8 ">
         <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6">
-          <Card className="bg-[#18181b] p-8 border-0">
+          <Card className="bg-[#18181b]/70 p-8 border-0">
             <h1 className="text-2xl font-bold text-white max-sm:text-center">
               Hi, USER
             </h1>
@@ -47,7 +47,7 @@ export default function Dashboard() {
           </Card>
 
           {/* Recent Images Card */}
-          <Card className="bg-[#18181b] border-0 p-1">
+          <Card className="bg-[#18181b]/70 border-0 p-1">
             <div className="p-4">
               <h3 className="text-xl font-semibold mb-2 text-white ">
                 Recent Images
@@ -70,7 +70,7 @@ export default function Dashboard() {
           </Card>
 
           {/* Upload Stats Card */}
-          <Card className="bg-[#18181b] p-3 lg:p-8 border-0 flex flex-col justify-between">
+          <Card className="bg-[#18181b]/70 p-3 lg:p-8 border-0 flex flex-col justify-between">
             <div className="p-4">
               <h3 className="text-xl font-semibold mb-2 text-white">
                 Upload Stats
@@ -93,7 +93,7 @@ export default function Dashboard() {
           </Card>
 
           {/* Storage Usage Card */}
-          <Card className="bg-[#18181b] p-3 lg:p-6 border-0 flex flex-col justify-between">
+          <Card className="bg-[#18181b]/70 p-3 lg:p-6 border-0 flex flex-col justify-between">
             <div className="p-4">
               <h3 className="text-xl font-semibold mb-5 text-white">
                 Storage Usage

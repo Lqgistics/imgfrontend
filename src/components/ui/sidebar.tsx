@@ -47,7 +47,7 @@ const Sidebar = () => {
         } transition-transform duration-300 ease-in-out md:relative md:translate-x-0 z-20`}
       >
         <div className="p-4">
-          <Card className="flex items-center space-x-4 p-2 px-4 bg-[#18181b] border-none mb-10 rounded-2xl">
+          <Card className="flex items-center space-x-4 p-2 px-4 bg-[#18181b]/70 border-none mb-10 rounded-2xl">
             <img
               src=""
               alt="User Profile"

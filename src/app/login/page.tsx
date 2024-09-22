@@ -56,8 +56,8 @@ export default function Login() {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-[90vh]">
-      <Card className="mx-auto w-[28%] min-w-[350px] bg-black/10 text-white border-white/10">
+    <div className="flex items-center justify-center min-h-[90vh] bg-[#09090b]">
+      <Card className="mx-auto w-[28%] min-w-[350px] bg-[#18181b]/70 text-white border-white/10">
         <CardHeader>
           <CardTitle className="text-3xl font-bold">Login</CardTitle>
           <CardDescription>Enter your login details below</CardDescription>
@@ -69,7 +69,7 @@ export default function Login() {
                 Email
               </Label>
               <Input
-                className="h-[50px] rounded-xl text-md bg-black/20 text-white border-white/10 "
+                className="h-[50px] rounded-xl text-md bg-black/10 text-white border-white/10 "
                 id="email"
                 type="email"
                 placeholder="email@example.com"
@@ -83,7 +83,7 @@ export default function Login() {
                 Password
               </Label>
               <Input
-                className="h-[50px] rounded-xl text-md bg-black/20 text-white border-white/10"
+                className="h-[50px] rounded-xl text-md bg-black/10 text-white border-white/10"
                 id="password"
                 type="password"
                 value={password}
@@ -94,7 +94,7 @@ export default function Login() {
             {error && <div className="text-red-500">{error}</div>}
             <Button
               type="submit"
-              className="w-full h-[50px] rounded-xl bg-gray-900 hover:bg-gray-800 text-white"
+              className="w-full h-[50px] rounded-xl bg-[#262626]/40 hover:bg-[#0e1f19] text-white"
               disabled={loading}
             >
               {loading ? "Logging in..." : "Login"}

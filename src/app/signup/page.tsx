@@ -144,8 +144,8 @@ export default function SignupForm() {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-[90vh]">
-      <Card className="mx-auto w-[28%] min-w-[350px] bg-black/10 text-white border-white/10">
+    <div className="flex items-center justify-center min-h-[90vh] bg-[#09090b]">
+      <Card className="mx-auto w-[28%] min-w-[350px] bg-[#18181b]/70 text-white border-white/10">
         <CardHeader>
           <CardTitle className="text-3xl font-bold">Sign Up</CardTitle>
           <CardDescription>Create your account to get started</CardDescription>
@@ -157,7 +157,7 @@ export default function SignupForm() {
                 Username
               </Label>
               <Input
-                className="h-[50px] rounded-xl text-md bg-black/20 text-white border-white/10 "
+                className="h-[50px] rounded-xl text-md bg-black/10 text-white border-white/10 "
                 id="username"
                 name="username"
                 type="text"
@@ -174,7 +174,7 @@ export default function SignupForm() {
                 Email
               </Label>
               <Input
-                className="h-[50px] rounded-xl text-md bg-black/20 text-white border-white/10 "
+                className="h-[50px] rounded-xl text-md bg-black/10 text-white border-white/10 "
                 id="email"
                 name="email"
                 type="email"
@@ -191,7 +191,7 @@ export default function SignupForm() {
                 Password
               </Label>
               <Input
-                className="h-[50px] rounded-xl text-md bg-black/20 text-white border-white/10 "
+                className="h-[50px] rounded-xl text-md bg-black/10 text-white border-white/10 "
                 id="password"
                 name="password"
                 type="password"
@@ -207,7 +207,7 @@ export default function SignupForm() {
               )}
               {isPasswordFocused && (
                 <div id="password-requirements" className="space-y-2 ">
-                  <h3 className="text-sm font-semibold text-card-foreground mb-2">
+                  <h3 className="text-sm font-semibold text-card-foreground mb-2 text-white">
                     Password must:
                   </h3>
                   <ul className="list-none space-y-1">
@@ -241,7 +241,7 @@ export default function SignupForm() {
             </div>
             <Button
               type="submit"
-              className="w-full h-[50px] rounded-xl bg-gray-900 hover:bg-gray-800"
+              className="w-full h-[50px] rounded-xl bg-[#262626]/60 hover:bg-[#0e1f19]"
               disabled={loading}
             >
               {loading
