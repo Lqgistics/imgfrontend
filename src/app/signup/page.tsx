@@ -54,7 +54,7 @@ export default function SignupForm() {
 
   const validateForm = () => {
     let isValid = true;
-    let errors: { [key: string]: string } = {};
+    const errors: { [key: string]: string } = {};
 
     // Username validation
     if (formData.username.length < 3 || formData.username.length > 30) {

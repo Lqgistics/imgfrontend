@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import Navbar from "@/components/navbar";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Check, Cloud, Image, Lock, Share2, Tag, Zap } from "lucide-react";
+import { Lock, Share2, Zap } from "lucide-react";
 
 const frames = [
   { width: 50, height: 50 },
@@ -67,7 +67,7 @@ export default function Home({ children }: { children: React.ReactNode }) {
       </div>
       {children}
       <section className="h-screen w-full flex items-center justify-center mt-80">
-        <div className="mx-auto grid max-w-5xl items-center gap-6 py-12 lg:grid-cols-3 lg:gap-12">
+        <div className="mx-auto grid max-w-5xl items-center gap-6 py-12 lg:grid-cols-3 lg:gap-12 top-0">
           <Card className="relative overflow-hidden bg-[#131327]/20 backdrop-blur-md border border-white/10 text-white">
             <CardHeader className="pb-0">
               <Zap className="h-12 w-12 text-blue-500 mb-4" />
