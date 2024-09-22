@@ -2,10 +2,8 @@
 
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import Link from "next/link";
 import React from "react";
 import { motion } from "framer-motion";
-import { Cloud } from "lucide-react";
 import Navbar from "@/components/navbar";
 
 const frames = [
@@ -66,6 +64,7 @@ export default function Home({ children }: { children: React.ReactNode }) {
           ))}
         </Card>
       </div>
+      {children}
       <section className="h-screen w-full flex items-center justify-center mt-80">
         <div className="text-center">
           <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">
