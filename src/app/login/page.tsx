@@ -22,7 +22,7 @@ export default function Login() {
   const [loading, setLoading] = useState(false);
   const router = useRouter();
 
-  const handleSubmit = async (event: any) => {
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     setLoading(true);
     setError("");
@@ -40,19 +40,24 @@ export default function Login() {
       Cookies.set("user", JSON.stringify(user), { expires: 1 });
 
       router.push("/dashboard");
-    } catch (error: any) {
-      // Handle error (Axios errors have a `response` property with the error details)
-      setError(
-        error.response?.data?.message || "Email or password is incorrect"
-      );
+    } catch (error: unknown) {
+      if (axios.isAxiosError(error)) {
+        // Handle Axios error
+        setError(
+          error.response?.data?.message || "Email or password is incorrect"
+        );
+      } else {
+        // Handle other errors
+        setError("An unexpected error occurred");
+      }
     } finally {
       setLoading(false);
     }
   };
 
   return (
-    <div className="flex items-center justify-center min-h-[90vh]">
-      <Card className="mx-auto w-[28%] min-w-[350px]">
+    <div className="flex items-center justify-center min-h-[90vh] bg-gray-900">
+      <Card className="mx-auto w-[28%] min-w-[350px] bg-gray-800 text-white">
         <CardHeader>
           <CardTitle className="text-3xl font-bold">Login</CardTitle>
           <CardDescription>Enter your login details below</CardDescription>
@@ -64,7 +69,7 @@ export default function Login() {
                 Email
               </Label>
               <Input
-                className="h-[50px] rounded-xl text-md"
+                className="h-[50px] rounded-xl text-md bg-gray-700 text-white"
                 id="email"
                 type="email"
                 placeholder="email@example.com"
@@ -78,7 +83,7 @@ export default function Login() {
                 Password
               </Label>
               <Input
-                className="h-[50px] rounded-xl text-md"
+                className="h-[50px] rounded-xl text-md bg-gray-700 text-white"
                 id="password"
                 type="password"
                 value={password}
@@ -89,7 +94,7 @@ export default function Login() {
             {error && <div className="text-red-500">{error}</div>}
             <Button
               type="submit"
-              className="w-full h-[50px] rounded-xl"
+              className="w-full h-[50px] rounded-xl bg-blue-600 hover:bg-blue-700"
               disabled={loading}
             >
               {loading ? "Logging in..." : "Login"}
