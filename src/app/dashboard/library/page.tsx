@@ -95,7 +95,7 @@ export default function LibraryPage() {
               <img
                 src={image.url}
                 alt={image.name}
-                className="w-full h-48 object-cover"
+                className="w-full h-48 object-cover z-10"
                 referrerPolicy="no-referrer"
               />
             </CardContent>
