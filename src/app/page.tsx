@@ -1,10 +1,11 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
-import { Card } from "@/components/ui/card";
 import React from "react";
 import { motion } from "framer-motion";
 import Navbar from "@/components/navbar";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Check, Cloud, Image, Lock, Share2, Tag, Zap } from "lucide-react";
 
 const frames = [
   { width: 50, height: 50 },
@@ -66,16 +67,46 @@ export default function Home({ children }: { children: React.ReactNode }) {
       </div>
       {children}
       <section className="h-screen w-full flex items-center justify-center mt-80">
-        <div className="text-center">
-          <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">
-            New Section Title
-          </h2>
-          <p className="text-white text-lg md:text-2xl max-w-2xl md:max-w-4xl mx-auto">
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque
-            deserunt ab ducimus porro tempore aliquid necessitatibus facere
-            nisi, eligendi eius reprehenderit laboriosam aliquam reiciendis
-            adipisci sapiente, eos in, dolorum placeat!
-          </p>
+        <div className="mx-auto grid max-w-5xl items-center gap-6 py-12 lg:grid-cols-3 lg:gap-12">
+          <Card className="relative overflow-hidden bg-[#131327]/20 backdrop-blur-md border border-white/10 text-white">
+            <CardHeader className="pb-0">
+              <Zap className="h-12 w-12 text-blue-500 mb-4" />
+              <CardTitle>Fast & Easy Uploads</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <p className="text-sm text-gray-500 dark:text-gray-400">
+                One-click uploads and drag-and-drop functionality for seamless
+                image management.
+              </p>
+            </CardContent>
+            <div className="absolute top-0 right-0 h-16 w-16 bg-blue-500/10 rounded-bl-full" />
+          </Card>
+          <Card className="relative overflow-hidden bg-[#131327]/20 backdrop-blur-md border border-white/10 text-white">
+            <CardHeader className="pb-0">
+              <Lock className="h-12 w-12 text-green-500 mb-4" />
+              <CardTitle>Image Security & Privacy</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <p className="text-sm text-gray-500 dark:text-gray-400">
+                SSL encryption and user control over visibility to keep your
+                images safe.
+              </p>
+            </CardContent>
+            <div className="absolute top-0 right-0 h-16 w-16 bg-green-500/10 rounded-bl-full" />
+          </Card>
+          <Card className="relative overflow-hidden bg-[#131327]/20 backdrop-blur-md border border-white/10 text-white">
+            <CardHeader className="pb-0">
+              <Share2 className="h-12 w-12 text-purple-500 mb-4" />
+              <CardTitle>Sharing Tools</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <p className="text-sm text-gray-500 dark:text-gray-400">
+                Direct links and social media sharing options for easy
+                distribution.
+              </p>
+            </CardContent>
+            <div className="absolute top-0 right-0 h-16 w-16 bg-purple-500/10 rounded-bl-full" />
+          </Card>
         </div>
       </section>
     </div>
