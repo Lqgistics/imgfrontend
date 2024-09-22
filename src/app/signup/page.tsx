@@ -206,7 +206,7 @@ export default function SignupForm() {
                 <div className="text-red-500">{errors.password}</div>
               )}
               {isPasswordFocused && (
-                <div id="password-requirements" className="space-y-2">
+                <div id="password-requirements" className="space-y-2 ">
                   <h3 className="text-sm font-semibold text-card-foreground mb-2">
                     Password must:
                   </h3>
@@ -220,7 +220,7 @@ export default function SignupForm() {
                           />
                         ) : (
                           <X
-                            className="w-4 h-4 mr-2 text-destructive"
+                            className="w-4 h-4 mr-2 text-destructive "
                             aria-hidden="true"
                           />
                         )}
@@ -228,7 +228,7 @@ export default function SignupForm() {
                           className={
                             req.validator(formData.password)
                               ? "text-green-500"
-                              : "text-card-foreground"
+                              : "text-white"
                           }
                         >
                           {req.text}

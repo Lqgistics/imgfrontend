@@ -37,7 +37,7 @@ export default function Home() {
         </div>
       </div>
       <div className="w-[70%] mx-auto relative top-[15rem]">
-        <Card className="h-[40rem] bg-[#131327]/20 backdrop-blur-md border border-white/10 shadow-lg">
+        <Card className="h-[22rem] sm:h-[30rem] lg:h-[40rem] bg-[#131327]/20 backdrop-blur-md border border-white/10 shadow-lg">
           {frames.map((frame, index) => (
             <motion.div
               key={index}
@@ -45,18 +45,18 @@ export default function Home() {
               style={{
                 width: frame.width,
                 height: frame.height,
-                left: `${Math.random() * 100}%`,
-                bottom: "0",
+                left: `${Math.random() * 80 + 10}%`,
+                bottom: "-10px",
               }}
               animate={{
-                y: [0, -500],
+                y: [0, window.innerWidth < 768 ? -300 : -500], // Adjust y based on screen width
                 opacity: [0, 1, 0],
                 rotate: [0, 10, -10, 0],
               }}
               transition={{
-                duration: 5, // Increased duration to slow down the animation
+                duration: window.innerWidth < 768 ? 6 : 5, // Increased duration to slow down the animation
                 repeat: Infinity,
-                delay: index * 0.8, // Adjusted delay to match the new duration
+                delay: index * 0.9, // Adjusted delay to match the new duration
                 ease: "easeInOut",
               }}
             >
@@ -67,45 +67,45 @@ export default function Home() {
       </div>
 
       <section className="h-screen w-full flex items-center justify-center mt-80">
-        <div className="mx-auto grid max-w-5xl items-center gap-6 py-12 lg:grid-cols-3 lg:gap-12 top-0">
-          <Card className="relative overflow-hidden bg-[#131327]/20 backdrop-blur-md border border-white/10 text-white">
-            <CardHeader className="pb-0">
-              <Zap className="h-12 w-12 text-blue-500 mb-4" />
+        <div className="mx-auto grid w-[70%] items-center gap-6 py-12 lg:grid-cols-3 lg:gap-12 relative lg:top-[-15rem] sm:top-[-5rem] top-[-8rem]">
+          <Card className="relative overflow-hidden bg-[#131327]/20 backdrop-blur-md border border-white/10 text-white h-[15rem]">
+            <CardHeader className="pb-0 text-lg">
+              <Zap className="h-12 w-12 text-blue-300/90 mb-4" />
               <CardTitle>Fast & Easy Uploads</CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-sm text-gray-500 dark:text-gray-400">
+              <p className="text-sm text-gray-500 dark:text-gray-400 mt-5">
                 One-click uploads and drag-and-drop functionality for seamless
                 image management.
               </p>
             </CardContent>
-            <div className="absolute top-0 right-0 h-16 w-16 bg-blue-500/10 rounded-bl-full" />
+            <div className="absolute top-0 right-0 h-20 w-20 bg-blue-500 blur-[4rem] rounded-bl-full" />
           </Card>
-          <Card className="relative overflow-hidden bg-[#131327]/20 backdrop-blur-md border border-white/10 text-white">
-            <CardHeader className="pb-0">
-              <Lock className="h-12 w-12 text-green-500 mb-4" />
+          <Card className="relative overflow-hidden bg-[#131327]/20 backdrop-blur-md border border-white/10 text-white h-[15rem] ">
+            <CardHeader className="pb-0 text-lg">
+              <Lock className="h-12 w-12 text-green-300/90 mb-4" />
               <CardTitle>Image Security & Privacy</CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-sm text-gray-500 dark:text-gray-400">
+              <p className="text-sm text-gray-500 dark:text-gray-400 mt-5">
                 SSL encryption and user control over visibility to keep your
                 images safe.
               </p>
             </CardContent>
-            <div className="absolute top-0 right-0 h-16 w-16 bg-green-500/10 rounded-bl-full" />
+            <div className="absolute top-0 right-0 h-20 w-20 bg-green-500 blur-[4rem] rounded-bl-full" />
           </Card>
-          <Card className="relative overflow-hidden bg-[#131327]/20 backdrop-blur-md border border-white/10 text-white">
-            <CardHeader className="pb-0">
-              <Share2 className="h-12 w-12 text-purple-500 mb-4" />
+          <Card className="relative overflow-hidden bg-[#131327]/20 backdrop-blur-md border border-white/10 text-white h-[15rem] ">
+            <CardHeader className="pb-0 text-lg">
+              <Share2 className="h-12 w-12 text-purple-300/90 mb-4" />
               <CardTitle>Sharing Tools</CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-sm text-gray-500 dark:text-gray-400">
+              <p className="text-sm text-gray-500 dark:text-gray-400 mt-5">
                 Direct links and social media sharing options for easy
                 distribution.
               </p>
             </CardContent>
-            <div className="absolute top-0 right-0 h-16 w-16 bg-purple-500/10 rounded-bl-full" />
+            <div className="absolute top-0 right-0 h-20 w-20 bg-purple-500 blur-[4rem] rounded-bl-full" />
           </Card>
         </div>
       </section>
