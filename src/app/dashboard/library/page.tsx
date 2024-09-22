@@ -90,7 +90,7 @@ export default function LibraryPage() {
           <Card key={image.id} className="overflow-hidden">
             <CardContent className="p-0">
               <img
-                src={`https://${image.url}`}
+                src={image.url}
                 alt={image.name}
                 className="w-full h-48 object-cover"
                 referrerPolicy="no-referrer"
