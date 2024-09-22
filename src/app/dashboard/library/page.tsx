@@ -58,7 +58,7 @@ export default function LibraryPage() {
   }, []);
 
   const handleCopyLink = (id: string, url: string) => {
-    const fullUrl = `https://${url}`;
+    const fullUrl = url;
     navigator.clipboard.writeText(fullUrl).then(() => {
       setCopiedLinks({ ...copiedLinks, [id]: true });
       toast({
