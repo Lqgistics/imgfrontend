@@ -1,10 +1,12 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import React from "react";
 import { motion } from "framer-motion";
-import { Button } from "@/components/ui/button";
-import { Card } from "@/components/ui/card";
 import Navbar from "@/components/navbar";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Lock, Share2, Zap } from "lucide-react";
+import { useEffect, useState } from "react";
 
 const frames = [
   { width: 50, height: 50 },
@@ -59,7 +61,7 @@ export default function Home() {
                 rotate: [0, 10, -10, 0],
               }}
               transition={{
-                duration: 5, // Increased duration to slow down the animation
+                duration: isClient && window.innerWidth < 768 ? 6 : 5, // Increased duration to slow down the animation
                 repeat: Infinity,
                 delay: index * 0.9, // Adjusted delay to match the new duration
                 ease: "easeInOut",
@@ -70,17 +72,48 @@ export default function Home() {
           ))}
         </Card>
       </div>
+
       <section className="h-screen w-full flex items-center justify-center mt-80">
-        <div className="text-center">
-          <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">
-            New Section Title
-          </h2>
-          <p className="text-white text-lg md:text-2xl max-w-2xl md:max-w-4xl mx-auto">
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque
-            deserunt ab ducimus porro tempore aliquid necessitatibus facere
-            nisi, eligendi eius reprehenderit laboriosam aliquam reiciendis
-            adipisci sapiente, eos in, dolorum placeat!
-          </p>
+        <div className="mx-auto grid w-[70%] items-center gap-6 py-12 lg:grid-cols-3 lg:gap-12 relative lg:top-[-15rem] sm:top-[-5rem] top-[-8rem]">
+          <Card className="relative overflow-hidden bg-[#131327]/20 backdrop-blur-md border border-white/10 text-white h-[15rem]">
+            <CardHeader className="pb-0 text-lg">
+              <Zap className="h-12 w-12 text-blue-300/90 mb-4" />
+              <CardTitle>Fast & Easy Uploads</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <p className="text-sm text-gray-500 dark:text-gray-400 mt-5">
+                One-click uploads and drag-and-drop functionality for seamless
+                image management.
+              </p>
+            </CardContent>
+            <div className="absolute top-0 right-0 h-20 w-20 bg-blue-500 blur-[4rem] rounded-bl-full" />
+          </Card>
+          <Card className="relative overflow-hidden bg-[#131327]/20 backdrop-blur-md border border-white/10 text-white h-[15rem] ">
+            <CardHeader className="pb-0 text-lg">
+              <Lock className="h-12 w-12 text-green-300/90 mb-4" />
+              <CardTitle>Image Security & Privacy</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <p className="text-sm text-gray-500 dark:text-gray-400 mt-5">
+                SSL encryption and user control over visibility to keep your
+                images safe.
+              </p>
+            </CardContent>
+            <div className="absolute top-0 right-0 h-20 w-20 bg-green-500 blur-[4rem] rounded-bl-full" />
+          </Card>
+          <Card className="relative overflow-hidden bg-[#131327]/20 backdrop-blur-md border border-white/10 text-white h-[15rem] ">
+            <CardHeader className="pb-0 text-lg">
+              <Share2 className="h-12 w-12 text-purple-300/90 mb-4" />
+              <CardTitle>Sharing Tools</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <p className="text-sm text-gray-500 dark:text-gray-400 mt-5">
+                Direct links and social media sharing options for easy
+                distribution.
+              </p>
+            </CardContent>
+            <div className="absolute top-0 right-0 h-20 w-20 bg-purple-500 blur-[4rem] rounded-bl-full" />
+          </Card>
         </div>
       </section>
     </div>
