@@ -1,30 +1,52 @@
-'use client'
+"use client";
 
-import React, { useState } from 'react';
-import axios from 'axios';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Label } from "@/components/ui/label"
-import { Input } from "@/components/ui/input"
-import { Button } from "@/components/ui/button"
-import { Alert, AlertDescription } from "@/components/ui/alert"
-import { Check, X } from 'lucide-react'
+import React, { useState } from "react";
+import axios from "axios";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Label } from "@/components/ui/label";
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
+import { Alert, AlertDescription } from "@/components/ui/alert";
+import { Check, X } from "lucide-react";
 
 type Requirement = {
-  text: string
-  validator: (password: string) => boolean
-}
+  text: string;
+  validator: (password: string) => boolean;
+};
 
 const requirements: Requirement[] = [
-  { text: 'At least 12 characters long', validator: (password) => password.length >= 12 },
-  { text: 'Contains a lowercase letter', validator: (password) => /[a-z]/.test(password) },
-  { text: 'Contains an uppercase letter', validator: (password) => /[A-Z]/.test(password) },
-  { text: 'Contains a number', validator: (password) => /\d/.test(password) },
-  { text: 'Contains a special character', validator: (password) => /[^a-zA-Z0-9]/.test(password) },
-]
+  {
+    text: "At least 12 characters long",
+    validator: (password) => password.length >= 12,
+  },
+  {
+    text: "Contains a lowercase letter",
+    validator: (password) => /[a-z]/.test(password),
+  },
+  {
+    text: "Contains an uppercase letter",
+    validator: (password) => /[A-Z]/.test(password),
+  },
+  { text: "Contains a number", validator: (password) => /\d/.test(password) },
+  {
+    text: "Contains a special character",
+    validator: (password) => /[^a-zA-Z0-9]/.test(password),
+  },
+];
 
 export default function SignupForm() {
-  const [formData, setFormData] = useState({ username: '', email: '', password: '' });
-  const [message, setMessage] = useState('');
+  const [formData, setFormData] = useState({
+    username: "",
+    email: "",
+    password: "",
+  });
+  const [message, setMessage] = useState("");
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
   const [isPasswordFocused, setIsPasswordFocused] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -40,7 +62,8 @@ export default function SignupForm() {
       isValid = false;
     }
     if (!/^[a-zA-Z0-9_]+$/.test(formData.username)) {
-      errors.username = "Username must contain only alphanumeric characters and underscores";
+      errors.username =
+        "Username must contain only alphanumeric characters and underscores";
       isValid = false;
     }
 
@@ -52,7 +75,7 @@ export default function SignupForm() {
 
     // Password validation
     const password = formData.password;
-    if (!requirements.every(req => req.validator(password))) {
+    if (!requirements.every((req) => req.validator(password))) {
       errors.password = "Password does not meet all requirements";
       isValid = false;
     }
@@ -68,7 +91,7 @@ export default function SignupForm() {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setErrors({});
-    setMessage('');
+    setMessage("");
     setLoading(true);
     setIsSuccess(false);
 
@@ -78,28 +101,42 @@ export default function SignupForm() {
     }
 
     try {
-      const response = await axios.post('http://127.0.0.1:8080/auth/signup', formData);
-      setMessage(response.data.message || 'Signup successful!');
+      const response = await axios.post(
+        "https://api.dbrad.engineer/auth/signup",
+        formData
+      );
+      setMessage(response.data.message || "Signup successful!");
       setIsSuccess(true);
     } catch (error: unknown) {
       if (axios.isAxiosError(error)) {
-        console.error('Axios error:', error.response);
+        console.error("Axios error:", error.response);
         if (error.response?.data?.errors) {
           // Display field-specific error messages if available
           setErrors(error.response.data.errors);
         } else {
           // Check for specific error messages from backend
-          if (error.response?.data?.error === 'Email address is already registered') {
-            setErrors(prevErrors => ({ ...prevErrors, email: 'Email address is already registered' }));
-          } else if (error.response?.data?.error === 'Username is already taken') {
-            setErrors(prevErrors => ({ ...prevErrors, username: 'Username is already taken' }));
+          if (
+            error.response?.data?.error ===
+            "Email address is already registered"
+          ) {
+            setErrors((prevErrors) => ({
+              ...prevErrors,
+              email: "Email address is already registered",
+            }));
+          } else if (
+            error.response?.data?.error === "Username is already taken"
+          ) {
+            setErrors((prevErrors) => ({
+              ...prevErrors,
+              username: "Username is already taken",
+            }));
           } else {
-            setMessage(error.response?.data?.message || 'An error occurred');
+            setMessage(error.response?.data?.message || "An error occurred");
           }
         }
       } else {
-        console.error('Unexpected error:', error);
-        setMessage('An unexpected error occurred.');
+        console.error("Unexpected error:", error);
+        setMessage("An unexpected error occurred.");
       }
     } finally {
       setLoading(false);
@@ -116,7 +153,9 @@ export default function SignupForm() {
         <CardContent>
           <form onSubmit={handleSubmit} className="space-y-4">
             <div className="space-y-3">
-              <Label className="text-md" htmlFor="username">Username</Label>
+              <Label className="text-md" htmlFor="username">
+                Username
+              </Label>
               <Input
                 className="h-[50px] rounded-xl text-md"
                 id="username"
@@ -126,10 +165,14 @@ export default function SignupForm() {
                 onChange={handleChange}
                 required
               />
-              {errors.username && <div className="text-red-500">{errors.username}</div>}
+              {errors.username && (
+                <div className="text-red-500">{errors.username}</div>
+              )}
             </div>
             <div className="space-y-3">
-              <Label className="text-md" htmlFor="email">Email</Label>
+              <Label className="text-md" htmlFor="email">
+                Email
+              </Label>
               <Input
                 className="h-[50px] rounded-xl text-md"
                 id="email"
@@ -139,10 +182,14 @@ export default function SignupForm() {
                 onChange={handleChange}
                 required
               />
-              {errors.email && <div className="text-red-500">{errors.email}</div>}
+              {errors.email && (
+                <div className="text-red-500">{errors.email}</div>
+              )}
             </div>
             <div className="space-y-3">
-              <Label className="text-md" htmlFor="password">Password</Label>
+              <Label className="text-md" htmlFor="password">
+                Password
+              </Label>
               <Input
                 className="h-[50px] rounded-xl text-md"
                 id="password"
@@ -155,19 +202,35 @@ export default function SignupForm() {
                 required
                 aria-describedby="password-requirements"
               />
-              {errors.password && <div className="text-red-500">{errors.password}</div>}
+              {errors.password && (
+                <div className="text-red-500">{errors.password}</div>
+              )}
               {isPasswordFocused && (
                 <div id="password-requirements" className="space-y-2">
-                  <h3 className="text-sm font-semibold text-card-foreground mb-2">Password must:</h3>
+                  <h3 className="text-sm font-semibold text-card-foreground mb-2">
+                    Password must:
+                  </h3>
                   <ul className="list-none space-y-1">
                     {requirements.map((req, index) => (
                       <li key={index} className="flex items-center text-sm">
                         {req.validator(formData.password) ? (
-                          <Check className="w-4 h-4 mr-2 text-green-500" aria-hidden="true" />
+                          <Check
+                            className="w-4 h-4 mr-2 text-green-500"
+                            aria-hidden="true"
+                          />
                         ) : (
-                          <X className="w-4 h-4 mr-2 text-destructive" aria-hidden="true" />
+                          <X
+                            className="w-4 h-4 mr-2 text-destructive"
+                            aria-hidden="true"
+                          />
                         )}
-                        <span className={req.validator(formData.password) ? 'text-green-500' : 'text-card-foreground'}>
+                        <span
+                          className={
+                            req.validator(formData.password)
+                              ? "text-green-500"
+                              : "text-card-foreground"
+                          }
+                        >
                           {req.text}
                         </span>
                       </li>
@@ -181,7 +244,11 @@ export default function SignupForm() {
               className="w-full h-[50px] rounded-xl"
               disabled={loading}
             >
-              {loading ? 'Signing Up...' : isSuccess ? 'Go to dashboard' : 'Sign Up'}
+              {loading
+                ? "Signing Up..."
+                : isSuccess
+                ? "Go to dashboard"
+                : "Sign Up"}
             </Button>
           </form>
           {message && (

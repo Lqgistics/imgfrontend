@@ -39,7 +39,7 @@ export default function LibraryPage() {
         }
 
         const response = await axios.get<Image[]>(
-          "http://localhost:8080/files",
+          "https://api.dbrad.engineer/files",
           {
             headers: {
               Authorization: `Bearer ${token}`,

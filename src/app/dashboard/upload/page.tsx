@@ -66,7 +66,7 @@ export default function ImageUploadPage() {
       console.log("FormData:", formData);
 
       const response = await axios.post(
-        "http://localhost:8080/files",
+        "https://api.dbrad.engineer/files",
         formData,
         config
       );

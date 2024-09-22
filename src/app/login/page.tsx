@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import { useState } from "react";
 import axios from "axios";
@@ -13,8 +13,7 @@ import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import Cookies from "js-cookie";
-import { useRouter } from 'next/navigation'
-
+import { useRouter } from "next/navigation";
 
 export default function Login() {
   const [email, setEmail] = useState("");
@@ -29,19 +28,23 @@ export default function Login() {
     setError("");
 
     try {
-      const response = await axios.post("http://127.0.0.1:8080/auth/login", { email, password });
+      const response = await axios.post(
+        "https://api.dbrad.engineer/auth/login",
+        { email, password }
+      );
 
       console.log("Login successful");
-      const {token, user} = response.data;
-      console.log(token)
-      Cookies.set("token", token, { });
-      Cookies.set("user", JSON.stringify(user), {expires: 1});
+      const { token, user } = response.data;
+      console.log(token);
+      Cookies.set("token", token, {});
+      Cookies.set("user", JSON.stringify(user), { expires: 1 });
 
       router.push("/dashboard");
-
     } catch (error: any) {
       // Handle error (Axios errors have a `response` property with the error details)
-      setError(error.response?.data?.message || "Email or password is incorrect");
+      setError(
+        error.response?.data?.message || "Email or password is incorrect"
+      );
     } finally {
       setLoading(false);
     }
