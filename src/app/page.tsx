@@ -14,7 +14,7 @@ const frames = [
   { width: 50, height: 50 },
 ];
 
-export default function Home({ children }: { children: React.ReactNode }) {
+export default function Home() {
   const [isClient, setIsClient] = useState(false);
 
   useEffect(() => {
@@ -70,7 +70,6 @@ export default function Home({ children }: { children: React.ReactNode }) {
           ))}
         </Card>
       </div>
-      {children}
       <section className="h-screen w-full flex items-center justify-center mt-80">
         <div className="text-center">
           <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">
