@@ -87,10 +87,7 @@ export default function LibraryPage() {
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
         {images.map((image) => (
-          <Card
-            key={image.id}
-            className="overflow-hidden rounded-xl bg-[#18181b]"
-          >
+          <Card key={image.id} className="overflow-hidden rounded-xl ">
             <CardContent className="p-0">
               <img
                 src={image.url}
