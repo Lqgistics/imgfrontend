@@ -94,7 +94,7 @@ export default function Login() {
             {error && <div className="text-red-500">{error}</div>}
             <Button
               type="submit"
-              className="w-full h-[50px] rounded-xl bg-[#262626]/40 hover:bg-[#0e1f19] text-white"
+              className="w-full h-[50px] rounded-xl bg-[#262626]/60 hover:bg-[#0e1f19] text-white"
               disabled={loading}
             >
               {loading ? "Logging in..." : "Login"}

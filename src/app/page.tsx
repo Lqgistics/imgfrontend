@@ -24,11 +24,8 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="relative min-h-screen">
+    <div className="relative min-h-screen ">
       <Navbar />
-      <div className="w-[30rem] h-[30rem] bg-[#078167]/80 rounded-full blur-[12rem] absolute left-[57%] top-[18%] -z-10"></div>
-      <div className="w-[30rem] h-[30rem] bg-[#392277]/80 rounded-full blur-[12rem] absolute right-[56%] top-[12%] -z-10"></div>
-      <div className="w-[40rem] h-[20rem] bg-[#ed95ff]/80 rounded-full blur-[15rem] absolute left-1/2 top-[-220px] transform -translate-x-1/2 -translate-y-1/2 -z-10"></div>
       <div className="z-1 relative top-[10rem]">
         <h1 className="text-4xl md:text-7xl font-bold text-center mb-4 md:mb-12 text-white/90 my-[-40px]">
           Your images, anywhere
@@ -75,9 +72,9 @@ export default function Home() {
 
       <section className="h-screen w-full flex items-center justify-center mt-80">
         <div className="mx-auto grid w-[70%] items-center gap-6 py-12 lg:grid-cols-3 lg:gap-12 relative lg:top-[-15rem] sm:top-[-5rem] top-[-8rem]">
-          <Card className="relative overflow-hidden bg-[#131327]/20 backdrop-blur-md border border-white/10 text-white h-[15rem]">
+          <Card className="relative overflow-hidden bg-[#131327]/20 backdrop-blur-md border border-white/5 text-white h-[15rem]">
             <CardHeader className="pb-0 text-lg">
-              <Zap className="h-12 w-12 text-blue-300/90 mb-4" />
+              <Zap className="h-12 w-12 text-blue-200/80 mb-4" />
               <CardTitle>Fast & Easy Uploads</CardTitle>
             </CardHeader>
             <CardContent>
@@ -86,11 +83,11 @@ export default function Home() {
                 image management.
               </p>
             </CardContent>
-            <div className="absolute top-0 right-0 h-20 w-20 bg-blue-500 blur-[4rem] rounded-bl-full" />
+            <div className="absolute top-0 right-0 h-28 w-40 bg-[#1e293d] blur-[4rem] rounded-bl-full" />
           </Card>
-          <Card className="relative overflow-hidden bg-[#131327]/20 backdrop-blur-md border border-white/10 text-white h-[15rem] ">
+          <Card className="relative overflow-hidden bg-[#131327]/20 backdrop-blur-md border border-white/5 text-white h-[15rem] ">
             <CardHeader className="pb-0 text-lg">
-              <Lock className="h-12 w-12 text-green-300/90 mb-4" />
+              <Lock className="h-12 w-12 text-green-200/90 mb-4" />
               <CardTitle>Image Security & Privacy</CardTitle>
             </CardHeader>
             <CardContent>
@@ -99,11 +96,11 @@ export default function Home() {
                 images safe.
               </p>
             </CardContent>
-            <div className="absolute top-0 right-0 h-20 w-20 bg-green-500 blur-[4rem] rounded-bl-full" />
+            <div className="absolute top-0 right-0 h-28 w-40 bg-[#1e3942] blur-[5rem] rounded-bl-full" />
           </Card>
-          <Card className="relative overflow-hidden bg-[#131327]/20 backdrop-blur-md border border-white/10 text-white h-[15rem] ">
+          <Card className="relative overflow-hidden bg-[#131327]/20 backdrop-blur-md border border-white/5 text-white h-[15rem] ">
             <CardHeader className="pb-0 text-lg">
-              <Share2 className="h-12 w-12 text-purple-300/90 mb-4" />
+              <Share2 className="h-12 w-12 text-purple-200/90 mb-4" />
               <CardTitle>Sharing Tools</CardTitle>
             </CardHeader>
             <CardContent>
@@ -112,7 +109,7 @@ export default function Home() {
                 distribution.
               </p>
             </CardContent>
-            <div className="absolute top-0 right-0 h-20 w-20 bg-purple-500 blur-[4rem] rounded-bl-full" />
+            <div className="absolute top-0 right-0 h-28 w-40 bg-[#15182c] blur-[3rem] rounded-bl-full" />
           </Card>
         </div>
       </section>
