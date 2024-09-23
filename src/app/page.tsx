@@ -35,7 +35,7 @@ export default function Home() {
           possimus ex blanditiis dolore error similique veniam.
         </p>
         <div className="flex justify-center mt-12">
-          <Button className="bg-white/90 h-[3rem] w-[8rem] rounded-[0.9rem] text-md text-black hover:text-white hover:bg-gray-900">
+          <Button className="bg-gray-300 h-[3rem] w-[8rem] rounded-[0.9rem] text-md text-black hover:text-white hover:bg-gray-900">
             Get Started
           </Button>
         </div>
@@ -70,7 +70,7 @@ export default function Home() {
         </Card>
       </div>
 
-      <section className="h-screen w-full flex items-center justify-center mt-80">
+      <section className="h-screen w-full flex items-center justify-center mt-[25rem] sm:mt-80">
         <div className="mx-auto grid w-[70%] items-center gap-6 py-12 lg:grid-cols-3 lg:gap-12 relative lg:top-[-15rem] sm:top-[-5rem] top-[-8rem]">
           <Card className="relative overflow-hidden bg-[#131327]/20 backdrop-blur-md border border-white/5 text-white h-[15rem]">
             <CardHeader className="pb-0 text-lg">
@@ -83,7 +83,7 @@ export default function Home() {
                 image management.
               </p>
             </CardContent>
-            <div className="absolute top-0 right-0 h-28 w-40 bg-[#1e293d] blur-[4rem] rounded-bl-full" />
+            <div className="absolute top-0 right-0 h-28 w-40 bg-[#1e293d] blur-[3rem] rounded-bl-full" />
           </Card>
           <Card className="relative overflow-hidden bg-[#131327]/20 backdrop-blur-md border border-white/5 text-white h-[15rem] ">
             <CardHeader className="pb-0 text-lg">
@@ -96,7 +96,7 @@ export default function Home() {
                 images safe.
               </p>
             </CardContent>
-            <div className="absolute top-0 right-0 h-28 w-40 bg-[#1e3942] blur-[5rem] rounded-bl-full" />
+            <div className="absolute top-0 right-0 h-28 w-40 bg-[#1e3942] blur-[3.5rem] rounded-bl-full" />
           </Card>
           <Card className="relative overflow-hidden bg-[#131327]/20 backdrop-blur-md border border-white/5 text-white h-[15rem] ">
             <CardHeader className="pb-0 text-lg">
@@ -109,7 +109,7 @@ export default function Home() {
                 distribution.
               </p>
             </CardContent>
-            <div className="absolute top-0 right-0 h-28 w-40 bg-[#15182c] blur-[3rem] rounded-bl-full" />
+            <div className="absolute top-0 right-0 h-28 w-40 bg-[#241b38] blur-[2rem] rounded-bl-full" />
           </Card>
         </div>
       </section>
