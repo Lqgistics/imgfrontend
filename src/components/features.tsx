@@ -67,7 +67,7 @@ export default function Features() {
   ];
 
   return (
-    <section className="flex-grow flex items-center justify-center mt-12 sm:mt-20">
+    <section className="flex-grow flex items-center justify-center mt-12 sm:mt-20 lg:mb-20">
       <div className="mx-auto grid w-[70%] items-center gap-6 py-12 lg:grid-cols-2 lg:gap-12 max-w-[120rem]">
         {features.map((feature, index) => (
           <Card
@@ -83,10 +83,10 @@ export default function Features() {
               <CardTitle>{feature.title}</CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-md text-gray-500 dark:text-gray-400 mt-2">
+              <p className="sm:text-md text-gray-500 dark:text-gray-400 mt-2 text-sm">
                 {feature.description}
               </p>
-              <ul className="mt-2 text-sm text-gray-300 font-semibold">
+              <ul className="sm:mt-2 mt-4 text-xs sm:text-sm text-gray-300 font-semibold">
                 {feature.details.map((detail, detailIndex) => (
                   <li key={detailIndex} className="mt-1">
                     • {detail}

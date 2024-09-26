@@ -5,9 +5,9 @@ import { motion } from "framer-motion";
 import Navbar from "@/components/navbar";
 import Features from "@/components/features";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Lock, Share2, Zap } from "lucide-react";
+import { Card } from "@/components/ui/card";
 import { useEffect, useState, useRef } from "react";
+import Plans from "@/components/plans";
 
 const frames = [
   { width: 50, height: 50 },
@@ -74,6 +74,7 @@ export default function Home() {
         </Card>
       </div>
       <Features />
+      <Plans />
     </div>
   );
 }
