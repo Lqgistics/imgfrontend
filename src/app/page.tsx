@@ -7,6 +7,7 @@ import Features from "@/components/features";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import Stats from "@/components/stats";
+import Footer from "@/components/footer";
 import { useEffect, useState, useRef } from "react";
 import Plans from "@/components/plans";
 
@@ -77,6 +78,7 @@ export default function Home() {
       <Features />
       <Stats />
       <Plans />
+      <Footer />
 
     </div>
   );

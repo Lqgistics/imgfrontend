@@ -11,7 +11,7 @@ import { Check } from "lucide-react";
 
 export default function Plans() {
   return (
-    <section className="mx-auto flex flex-col lg:flex-row items-center justify-center gap-10 ">
+    <section className="mx-auto flex flex-col lg:flex-row items-center justify-center gap-10 mt-10 mb-20 ">
       <Card className="bg-[#131327]/20 backdrop-blur-md border border-white/5 text-white lg:h-[30rem] lg:w-[25rem] sm:w-[35rem] w-[21rem]">
         <CardHeader>
           <CardTitle className="text-2xl font-bold text-white">
