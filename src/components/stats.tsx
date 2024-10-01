@@ -4,7 +4,6 @@ import {
     CardTitle,
     CardDescription,
     CardContent,
-    CardFooter,
   } from "@/components/ui/card";
 
 export default function Stats() {
