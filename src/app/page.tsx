@@ -1,5 +1,6 @@
 "use client";
 
+import React, { useRef } from "react";
 import { motion } from "framer-motion";
 import Navbar from "@/components/navbar";
 import Features from "@/components/features";
