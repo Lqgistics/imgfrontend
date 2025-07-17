@@ -9,8 +9,6 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import Stats from "@/components/stats";
 import Footer from "@/components/footer";
-import { useEffect, useState, useRef } from "react";
-import Plans from "@/components/plans";
 
 const frames = [
   { width: 50, height: 50 },
