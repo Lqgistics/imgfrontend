@@ -13,7 +13,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="bg-[url('./bg1.png')] bg-cover bg-center h-screen bg-no-repeat bg-[#0b0c0f] overflow-x-hidden">
+      <body className="bg-[url('./bg2.png')] bg-cover bg-center h-screen bg-no-repeat bg-[#0b0c0f] overflow-x-hidden">
         {children}
       </body>
     </html>

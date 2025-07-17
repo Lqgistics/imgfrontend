@@ -1,8 +1,76 @@
+"use client";
+
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Settings, Library, Upload, LogOut } from "lucide-react";
+import { useEffect, useState } from "react";
+import Cookies from "js-cookie";
+import axios from "axios";
+
+interface RecentImage {
+  id: number;
+  fileName: string;
+  fileType: string;
+  filePath: string;
+  fileSize: number;
+  uploadDate: string;
+  viewURL: string;
+}
+
+interface DashboardMetrics {
+  totalImageCount: number;
+  totalStorageUsed: number;
+  recentImages: RecentImage[];
+}
 
 export default function Dashboard() {
+  const [metrics, setMetrics] = useState<DashboardMetrics>({
+    totalImageCount: 0,
+    totalStorageUsed: 0,
+    recentImages: []
+  });
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchDashboardMetrics = async () => {
+      try {
+        const token = Cookies.get("token");
+        if (!token) {
+          throw new Error("No token found");
+        }
+
+        const response = await axios.get<DashboardMetrics>(
+          "http://localhost:8080/api/dashboard/metrics",
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
+        setMetrics(response.data);
+        setLoading(false);
+      } catch (err) {
+        console.error("Failed to fetch dashboard metrics:", err);
+        setLoading(false);
+      }
+    };
+
+    fetchDashboardMetrics();
+  }, []);
+
+  // Convert bytes to KB/MB/GB
+  const formatStorageSize = (bytes: number) => {
+    if (bytes === 0) return "0 KB";
+    const k = 1024;
+    const sizes = ["KB", "MB", "GB"];
+    const i = Math.floor(Math.log(bytes) / Math.log(k));
+    return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + " " + sizes[i];
+  };
+
+  // Calculate storage percentage (assuming 10GB = 10,485,760 KB limit)
+  const storageLimit = 0.01 * 1024 * 1024; // 10GB in KB
+  const storagePercentage = Math.min((metrics.totalStorageUsed / storageLimit) * 100, 100);
+
   return (
     <div className="flex h-screen">
       {/* Main content */}
@@ -53,12 +121,35 @@ export default function Dashboard() {
                 Recent Images
               </h3>
               <div className="grid grid-cols-3 gap-2">
-                {[1, 2, 3, 4, 5, 6].map((item) => (
-                  <div
-                    key={item}
-                    className="aspect-square bg-white/5 rounded-3xl"
-                  ></div>
-                ))}
+                {loading ? (
+                  // Loading state
+                  Array.from({ length: 6 }).map((_, index) => (
+                    <div
+                      key={index}
+                      className="aspect-square bg-white/5 rounded-3xl animate-pulse"
+                    ></div>
+                  ))
+                ) : (
+                  // Display recent images or empty slots
+                  Array.from({ length: 6 }).map((_, index) => {
+                    const image = metrics.recentImages[index];
+                    return (
+                      <div
+                        key={index}
+                        className="aspect-square bg-white/5 rounded-3xl overflow-hidden"
+                      >
+                        {image ? (
+                          <img
+                            src={`http://localhost:8080/${image.viewURL}`}
+                            alt={image.fileName}
+                            className="w-full h-full object-cover"
+                            referrerPolicy="no-referrer"
+                          />
+                        ) : null}
+                      </div>
+                    );
+                  })
+                )}
               </div>
               <Button
                 variant="ghost"
@@ -77,10 +168,10 @@ export default function Dashboard() {
               </h3>
               <div className="flex flex-col xl:items-center">
                 <p className="text-3xl xl:text-[4rem] font-bold text-white mt-0 xl:mt-10 2xl:mt-16">
-                  1,234
+                  {loading ? "..." : metrics.totalImageCount.toLocaleString()}
                 </p>
                 <p className="text-white/90 xl:mt-8">
-                  Images uploaded this month
+                  Total images uploaded
                 </p>
               </div>
             </div>
@@ -99,9 +190,17 @@ export default function Dashboard() {
                 Storage Usage
               </h3>
               <div className="h-6 bg-white/10 rounded-full overflow-hidden">
-                <div className="h-full bg-gray-400 w-3/4"></div>
+                <div 
+                  className="h-full bg-gray-400 transition-all duration-300"
+                  style={{ width: `${storagePercentage}%` }}
+                ></div>
               </div>
-              <p className="mt-2 text-sm text-white/60">75% of 10GB used</p>
+              <p className="mt-2 text-sm text-white/60">
+                {loading 
+                  ? "Loading..." 
+                  : `${storagePercentage.toFixed(1)}% of 10MB used (${formatStorageSize(metrics.totalStorageUsed)})`
+                }
+              </p>
             </div>
             <Button
               variant="ghost"

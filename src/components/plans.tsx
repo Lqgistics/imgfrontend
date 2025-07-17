@@ -22,10 +22,10 @@ export default function Plans() {
           </CardDescription>
         </CardHeader>
         <CardContent>
-          <p className="text-4xl font-bold text-white mb-4">
+          <p className="text-4xl font-bold text-white mb-6">
             $9.99<span className="text-lg font-normal">/month</span>
           </p>
-          <ul className="space-y-2">
+          <ul className="space-y-4 mb-6">
             {[
               "5GB Storage",
               "100GB Bandwidth",
@@ -56,10 +56,10 @@ export default function Plans() {
           </CardDescription>
         </CardHeader>
         <CardContent>
-          <p className="text-4xl font-bold text-white mb-4">
+          <p className="text-4xl font-bold text-white mb-6">
             $24.99<span className="text-lg font-normal">/month</span>
           </p>
-          <ul className="space-y-2">
+          <ul className="space-y-4 mb-6">
             {[
               "25GB Storage",
               "Unlimited Bandwidth",

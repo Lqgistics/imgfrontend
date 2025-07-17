@@ -16,9 +16,12 @@ import { useToast } from "@/hooks/use-toast";
 
 interface Image {
   id: string;
-  name: string;
-  url: string;
-  api_version: string;
+  fileName: string;
+  fileType: string;
+  filePath: string;
+  fileSize: number;
+  uploadDate: string;
+  viewURL: string;
 }
 
 export default function LibraryPage() {
@@ -39,7 +42,7 @@ export default function LibraryPage() {
         }
 
         const response = await axios.get<Image[]>(
-          "https://api.dbrad.engineer/files",
+          "http://localhost:8080/api/images",
           {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -48,6 +51,7 @@ export default function LibraryPage() {
         );
         setImages(response.data);
         setLoading(false);
+        console.log("success");
       } catch (err) {
         setError("Failed to fetch images. Please try again later.");
         setLoading(false);
@@ -58,7 +62,7 @@ export default function LibraryPage() {
   }, []);
 
   const handleCopyLink = (id: string, url: string) => {
-    const fullUrl = url;
+    const fullUrl = `http://localhost:8080/${url}`;
     navigator.clipboard.writeText(fullUrl).then(() => {
       setCopiedLinks({ ...copiedLinks, [id]: true });
       toast({
@@ -87,18 +91,18 @@ export default function LibraryPage() {
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
         {images.map((image) => (
-          <Card key={image.id} className="overflow-hidden rounded-xl ">
+          <Card key={image.id} className="overflow-hidden rounded-xl bg-black border-none">
             <CardContent className="p-0">
               <img
-                src={image.url}
-                alt={image.name}
+                src={`http://localhost:8080/${image.viewURL}`}
+                alt={image.fileName}
                 className="w-full h-48 object-cover z-10"
                 referrerPolicy="no-referrer"
               />
             </CardContent>
             <CardFooter className="p-2 flex justify-between items-center">
               <p className="text-sm font-medium truncate text-white">
-                {image.name}
+                {image.fileName}
               </p>
               <TooltipProvider>
                 <Tooltip>
@@ -107,7 +111,7 @@ export default function LibraryPage() {
                       className="text-white"
                       variant="ghost"
                       size="icon"
-                      onClick={() => handleCopyLink(image.id, image.url)}
+                      onClick={() => handleCopyLink(image.id, image.viewURL)}
                     >
                       {copiedLinks[image.id] ? (
                         <Check className="h-4 w-4" />

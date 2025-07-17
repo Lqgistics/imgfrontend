@@ -68,7 +68,7 @@ export default function Features() {
 
   return (
     <section className="flex-grow flex items-center justify-center mt-12 sm:mt-20 lg:mb-20">
-      <div className="mx-auto grid w-[70%] items-center gap-6 py-12 lg:grid-cols-2 lg:gap-12 max-w-[120rem]">
+      <div className="mx-auto max-w-[120rem] sm:w-[70%] w-[23rem] grid  items-center gap-6 py-12 lg:grid-cols-2 lg:gap-12 ">
         {features.map((feature, index) => (
           <Card
             key={index}

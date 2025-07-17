@@ -102,7 +102,7 @@ export default function SignupForm() {
 
     try {
       const response = await axios.post(
-        "https://api.dbrad.engineer/auth/signup",
+        "http://localhost:8080/api/auth/signup",
         formData
       );
       setMessage(response.data.message || "Signup successful!");
