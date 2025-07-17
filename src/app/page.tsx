@@ -1,6 +1,5 @@
 "use client";
 
-import React, { useEffect, useState, useRef } from "react";
 import { motion } from "framer-motion";
 import Navbar from "@/components/navbar";
 import Features from "@/components/features";
@@ -19,7 +18,6 @@ const frames = [
 ];
 
 export default function Home() {
-  // Remove unused isClient state since it's not being used
   const randomLeftPositions = useRef(frames.map(() => Math.random() * 80 + 10));
 
   return (
