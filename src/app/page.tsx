@@ -19,12 +19,8 @@ const frames = [
 ];
 
 export default function Home() {
-  const [isClient, setIsClient] = useState(false);
+  // Remove unused isClient state since it's not being used
   const randomLeftPositions = useRef(frames.map(() => Math.random() * 80 + 10));
-
-  useEffect(() => {
-    setIsClient(true);
-  }, []);
 
   return (
     <div className="relative min-h-screen bg-gradient-overlay flex flex-col">
@@ -79,7 +75,6 @@ export default function Home() {
       <Stats />
       <Plans />
       <Footer />
-
     </div>
   );
 }
