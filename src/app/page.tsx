@@ -7,6 +7,10 @@ import Features from "@/components/features";
 import Plans from "@/components/plans";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
+import Stats from "@/components/stats";
+import Footer from "@/components/footer";
+import { useEffect, useState, useRef } from "react";
+import Plans from "@/components/plans";
 
 const frames = [
   { width: 50, height: 50 },
@@ -27,25 +31,24 @@ export default function Home() {
   return (
     <div className="relative min-h-screen bg-gradient-overlay flex flex-col">
       <Navbar />
-      <main className="flex-grow flex flex-col justify-center items-center px-4 sm:px-6 lg:px-8 mt-10 lg:mt-20 xl:mt-28 2xl:mt-40">
-        <div className="text-center max-w-4xl mx-auto">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold mb-4 sm:mb-6 md:mb-8 lg:mb-12 text-white/90">
+      <div className="flex-grow flex flex-col justify-center items-center mx-[2rem] mt-[5rem] xl:mt-[6rem] 2xl:mt-[9rem]">
+        <div className="text-center">
+          <h1 className="text-4xl xl:text-6xl 2xl:text-7xl font-bold mb-4 xl:mb-9 2xl:mb-12 text-white/90">
             Your images, anywhere
           </h1>
-          <p className="text-white/80 text-base sm:text-lg md:text-xl lg:text-2xl max-w-md sm:max-w-lg md:max-w-xl lg:max-w-2xl mx-auto">
+          <p className="text-white/80 text-lg xl:text-xl 2xl:text-2xl max-w-md md:max-w-2xl mx-auto">
             Lorem ipsum dolor sit amet consectetur, adipisicing elit.
             Consequuntur possimus ex blanditiis dolore error similique veniam.
           </p>
-          <div className="mt-6 sm:mt-8 md:mt-10">
-            <Button className="bg-gray-300 h-10 sm:h-12 md:h-14 px-6 sm:px-8 md:px-10 rounded-lg sm:rounded-xl text-sm sm:text-base md:text-lg text-black hover:text-white hover:bg-gray-400 transition-colors duration-300">
+          <div className="flex justify-center mt-8">
+            <Button className="bg-gray-300 h-[3rem] w-[8rem] rounded-[0.9rem] text-md text-black hover:text-white hover:bg-gray-400">
               Get Started
             </Button>
           </div>
         </div>
-      </main>
-
-      <div className="w-full sm:w-11/12 md:w-10/12 lg:w-9/12 xl:w-8/12 mx-auto mt-10 sm:mt-16 md:mt-20 lg:mt-24 px-4 sm:px-0">
-        <Card className="mx-auto max-w-[120rem] h-80 lg:h-96 xl:h-[30rem] bg-[#131327]/20 backdrop-blur-md border border-white/10 shadow-lg relative overflow-hidden">
+      </div>
+      <div className="w-[90%] sm:w-[80%] 2xl:w-[70%] mx-auto relative mt-20">
+        <Card className="mx-auto max-w-[120rem] h-[22rem] sm:h-[30rem] lg:h-[40rem] bg-[#131327]/20 backdrop-blur-md border border-white/10 shadow-lg">
           {frames.map((frame, index) => (
             <motion.div
               key={index}
@@ -75,7 +78,10 @@ export default function Home() {
       </div>
 
       <Features />
+      <Stats />
       <Plans />
+      <Footer />
+
     </div>
   );
 }

@@ -11,8 +11,8 @@ import { Check } from "lucide-react";
 
 export default function Plans() {
   return (
-    <div className="mx-auto flex flex-col lg:flex-row justify-center gap-10 ">
-      <Card className="bg-[#131327]/20 backdrop-blur-md border border-white/5 text-white lg:h-[30rem] lg:w-[25rem] sm:w-[35rem] w-[23rem] ">
+    <section className="mx-auto flex flex-col lg:flex-row items-center justify-center gap-10 mt-10 mb-20 ">
+      <Card className="bg-[#131327]/20 backdrop-blur-md border border-white/5 text-white lg:h-[30rem] lg:w-[25rem] sm:w-[35rem] w-[21rem]">
         <CardHeader>
           <CardTitle className="text-2xl font-bold text-white">
             Basic Plan
@@ -22,10 +22,10 @@ export default function Plans() {
           </CardDescription>
         </CardHeader>
         <CardContent>
-          <p className="text-4xl font-bold text-white mb-6">
-            $9.99<span className="text-lg font-normal">/month</span>
+          <p className="text-xl sm:text-4xl font-bold text-white mt-[-1rem] mb-3 sm:mb-6">
+            $9.99<span className="text-sm sm:text-lg font-normal">/month</span>
           </p>
-          <ul className="space-y-4 mb-6">
+          <ul className="space-y-2 sm:space-y-3 mb-2">
             {[
               "5GB Storage",
               "100GB Bandwidth",
@@ -46,7 +46,7 @@ export default function Plans() {
         </CardFooter>
       </Card>
 
-      <Card className="bg-[#131327]/20 backdrop-blur-md border border-white/5 text-white lg:h-[30rem] lg:w-[25rem] sm:w-[35rem] w-[23rem]">
+      <Card className="bg-[#131327]/20 backdrop-blur-md border border-white/5 text-white lg:h-[30rem] lg:w-[25rem] sm:w-[35rem] w-[21rem]">
         <CardHeader>
           <CardTitle className="text-2xl font-bold text-white">
             Pro Plan
@@ -56,10 +56,10 @@ export default function Plans() {
           </CardDescription>
         </CardHeader>
         <CardContent>
-          <p className="text-4xl font-bold text-white mb-6">
-            $24.99<span className="text-lg font-normal">/month</span>
+          <p className="text-xl sm:text-4xl font-bold text-white mt-[-1rem] mb-3 sm:mb-6">
+            $24.99<span className="text-sm sm:text-lg font-normal">/month</span>
           </p>
-          <ul className="space-y-4 mb-6">
+          <ul className="space-y-2 sm:space-y-3 mb-2">
             {[
               "25GB Storage",
               "Unlimited Bandwidth",
@@ -80,6 +80,6 @@ export default function Plans() {
           </Button>
         </CardFooter>
       </Card>
-    </div>
+    </section>
   );
 }
